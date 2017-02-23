@@ -30,7 +30,6 @@ jobs:
   - name: fast-runsh-job
     type: runSh
     steps:
-        - IN: runSh2
         - IN: rel-alpha
         - OUT: unsed-res-1
         - TASK:

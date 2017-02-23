@@ -3,7 +3,6 @@ jobs:
     type: runSh
     steps:
         - IN: gitRepo
-        - IN: manifest
         - TASK:
             - script: sudo apt-get install -y jq
     on_success:
@@ -12,11 +11,12 @@ jobs:
     on_failure:
         - script: echo 'failed runSh'
         - NOTIFY: notification
+        
+        
   - name: runSh2
     type: runSh
     steps:
         - IN: gitRepo
-        - IN: manifest
         - TASK:
             - script: sudo apt-get update
             - script: sleep 60s

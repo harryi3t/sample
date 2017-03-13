@@ -8,3 +8,10 @@ python:
 build:
   ci:
     - python --version
+
+integrations:
+  notifications:
+    - integrationName: "triggerResource"
+      type: webhook
+      payload:
+        - versionName=$BRANCH.$BUILD_NUMBER

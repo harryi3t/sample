@@ -50,7 +50,7 @@ jobs:
   - name: runSh3
     type: runSh
     steps:
-        - IN: manifest2
+        - IN: runSh2
         - IN: gitRepo
         - OUT: unsed-res-3
         - TASK:
@@ -59,7 +59,7 @@ jobs:
   - name: runSh4
     type: runSh
     steps:
-        - IN: manifest3
+        - IN: runSh3
         - IN: manifest
         - IN: gitRepo        
         - TASK:

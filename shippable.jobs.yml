@@ -5,28 +5,16 @@ jobs:
         - IN: gitRepo
         - TASK:
             - script: sudo apt-get install -y jq
-    on_success:
-        - script: echo 'successful runSh'
-        - NOTIFY: notification
-    on_failure:
-        - script: echo 'failed runSh'
-        - NOTIFY: notification
         
         
-  - name: runSh2
+  - name: runSh-60-sec
     type: runSh
     steps:
         - IN: gitRepo
         - TASK:
             - script: sudo apt-get update
             - script: sleep 60s
-    on_success:
-        - script: echo 'successful runSh'
-        - NOTIFY: notification
-    on_failure:
-        - script: echo 'failed runSh'
-        - NOTIFY: notification
-
+            
   - name: fast-runsh-job
     type: runSh
     steps:
@@ -42,12 +30,6 @@ jobs:
         - IN: alpha-ver
         - TASK: managed
           bump: alpha
-    on_success:
-        - script: echo 'successful release'
-        - NOTIFY: notification
-    on_failure:
-        - script: echo 'failed release'
-        - NOTIFY: notification
 
   - name: manifest
     type: manifest
@@ -55,32 +37,32 @@ jobs:
         - IN: gitRepo
         - OUT: image
         - TASK: managed
-    on_success:
-        - script: echo 'successful manifest'
-    on_failure:
-        - script: echo 'failed manifest'
 
-  - name: manifest2
-    type: manifest
+  - name: runSh2
+    type: runSh
     steps:
         - IN: manifest
         - IN: gitRepo
         - OUT: unsed-res-2
-        - TASK: managed
+        - TASK:
+            - script: echo "running job"
 
-  - name: manifest3
-    type: manifest
+  - name: runSh3
+    type: runSh
     steps:
         - IN: manifest2
         - IN: gitRepo
         - OUT: unsed-res-3
-        - TASK: managed
+        - TASK:
+           - script: echo "running job"
 
-  - name: manifest4
-    type: manifest
+  - name: runSh4
+    type: runSh
     steps:
         - IN: manifest3
         - IN: manifest
         - IN: gitRepo        
-        - TASK: managed
+        - TASK:
+           - script: echo "running job"
+
         

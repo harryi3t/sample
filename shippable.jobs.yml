@@ -43,7 +43,6 @@ jobs:
     steps:
         - IN: manifest
         - IN: gitRepo
-        - OUT: unsed-res-2
         - TASK:
             - script: echo "running job"
 
@@ -52,7 +51,6 @@ jobs:
     steps:
         - IN: runSh2
         - IN: gitRepo
-        - OUT: unsed-res-3
         - TASK:
            - script: echo "running job"
 

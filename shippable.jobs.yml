@@ -19,7 +19,7 @@ jobs:
     type: runSh
     steps:
         - IN: rel-alpha
-        # - OUT: unsed-res-1
+        - OUT: unsed-res-1
         - TASK:
             - script: echo "running job"
             

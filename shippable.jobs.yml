@@ -5,8 +5,8 @@ jobs:
         - IN: gitRepo
         - TASK:
             - script: sudo apt-get install -y jq
-        
-        
+
+
   - name: runSh-60-sec
     type: runSh
     steps:
@@ -14,15 +14,15 @@ jobs:
         - TASK:
             - script: sudo apt-get update
             - script: sleep 60s
-            
+
   - name: fast-runsh-job
     type: runSh
     steps:
         - IN: rel-alpha
-        - OUT: unsed-res-1
+        # - OUT: unsed-res-1
         - TASK:
             - script: echo "running job"
-            
+
   - name: rel-alpha
     type: release
     steps:
@@ -59,8 +59,6 @@ jobs:
     steps:
         - IN: runSh3
         - IN: manifest
-        - IN: gitRepo        
+        - IN: gitRepo
         - TASK:
            - script: echo "running job"
-
-        

@@ -54,11 +54,11 @@ jobs:
         - TASK:
            - script: echo "running job"
 
-  - name: runSh4
-    type: runSh
-    steps:
-        - IN: runSh3
-        - IN: manifest
-        - IN: gitRepo
-        - TASK:
-           - script: echo "running job"
+ # - name: runSh4
+ #   type: runSh
+ #   steps:
+ #       - IN: runSh3
+ #      - IN: manifest
+ #       - IN: gitRepo
+ #       - TASK:
+ #          - script: echo "running job"
